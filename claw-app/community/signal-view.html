@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — Signal</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--signal-view">
+  <script src="../claw-storage.js"></script>
+  <script>
+    (function () {
+      var claw = window.ClawStorage && ClawStorage.getSelectedClaw();
+      var url = claw
+        ? '../my-claw/my-claw.html?id=' + encodeURIComponent(claw.id)
+        : '../my-claw/my-claws.html';
+      window.location.replace(url);
+    })();
+  </script>
+</body>
+</html>

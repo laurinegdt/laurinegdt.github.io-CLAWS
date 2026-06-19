@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — My NFC tags</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--my-nfc" data-claw-guard>
+  <main class="my-nfc-page">
+    <h1 class="my-nfc-page__title">MY NFC TAGS</h1>
+    <p class="my-nfc-page__hint">Saved for this claw — pick the active one on the claw page.</p>
+
+    <ul class="nfc-list" id="nfc-list" hidden></ul>
+    <p class="my-nfc-page__empty" id="nfc-empty">No NFC tags yet. <a href="nfc-home.html">Add one</a>.</p>
+    <a href="nfc-home.html" class="menu__btn my-nfc-page__add" id="nfc-add-btn">Program NFC tag</a>
+
+    <nav class="page-nav" aria-label="Page navigation">
+      <a href="../my-claw/assign-nfc.html" class="back-link" data-claw-back="assign-nfc">← Back</a>
+      <a href="../menu/menu.html" class="home-link" data-claw-back="menu">Menu</a>
+    </nav>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="../claw-storage.js"></script>
+  <script src="../claw-context.js"></script>
+  <script src="nfc-payload.js"></script>
+  <script src="nfc-storage.js"></script>
+  <script src="my-nfc.js"></script>
+  <script>ClawContext.boot({ guard: true });</script>
+</body>
+</html>

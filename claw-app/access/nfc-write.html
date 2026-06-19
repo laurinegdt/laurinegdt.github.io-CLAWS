@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — Write NFC</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--nfc-write" data-claw-guard>
+  <main class="nfc-write">
+    <h1 class="nfc-write__title" id="nfc-title">NFC</h1>
+    <p class="nfc-write__subtitle" id="nfc-subtitle"></p>
+
+    <form class="nfc-write__form" id="nfc-form" novalidate>
+      <div id="nfc-fields"></div>
+
+      <p class="nfc-write__status" id="nfc-status" aria-live="polite">Not connected</p>
+
+      <button type="button" class="signal-save" id="nfc-connect-btn">Connect XIAO NFC</button>
+      <button type="submit" class="signal-save nfc-write__program" id="nfc-program-btn" disabled>
+        Program NFC tag
+      </button>
+    </form>
+
+    <nav class="page-nav" aria-label="Page navigation">
+      <a href="nfc-home.html" class="back-link">← Back</a>
+      <a href="../menu/menu.html" class="home-link" data-claw-back="menu">Menu</a>
+    </nav>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="../claw-storage.js"></script>
+  <script src="../claw-context.js"></script>
+  <script src="nfc-payload.js"></script>
+  <script src="nfc-storage.js"></script>
+  <script src="nfc-write.js"></script>
+  <script>ClawContext.boot({ guard: true });</script>
+</body>
+</html>

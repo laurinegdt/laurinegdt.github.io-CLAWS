@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — NFC</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--nfc-home" data-claw-guard>
+  <main class="nfc-home">
+    <p class="menu__heading">NFC tag</p>
+    <p class="nfc-home__hint">Choose what the XIAO should emulate when scanned.</p>
+
+    <nav class="nfc-type-grid" aria-label="NFC record types">
+      <a href="nfc-write.html?type=url" class="nfc-type-card">
+        <span class="nfc-type-card__icon" aria-hidden="true">🔗</span>
+        <span class="nfc-type-card__label">URL</span>
+      </a>
+      <a href="nfc-write.html?type=text" class="nfc-type-card">
+        <span class="nfc-type-card__icon" aria-hidden="true">📝</span>
+        <span class="nfc-type-card__label">Text</span>
+      </a>
+      <a href="nfc-write.html?type=contact" class="nfc-type-card">
+        <span class="nfc-type-card__icon" aria-hidden="true">👤</span>
+        <span class="nfc-type-card__label">Contact</span>
+      </a>
+      <a href="nfc-write.html?type=wifi" class="nfc-type-card">
+        <span class="nfc-type-card__icon" aria-hidden="true">📶</span>
+        <span class="nfc-type-card__label">WiFi</span>
+      </a>
+    </nav>
+
+    <nav class="page-nav" aria-label="Page navigation">
+      <a href="../my-claw/assign-nfc.html" class="back-link" data-claw-back="assign-nfc">← Back</a>
+      <a href="../menu/menu.html" class="home-link" data-claw-back="menu">Menu</a>
+    </nav>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="../claw-storage.js"></script>
+  <script src="../claw-context.js"></script>
+  <script>ClawContext.boot({ guard: true });</script>
+</body>
+</html>

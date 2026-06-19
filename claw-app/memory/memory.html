@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — Passwords</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--submenu" data-claw-guard>
+  <script src="../claw-storage.js"></script>
+  <script src="../claw-context.js"></script>
+  <script>
+    if (!ClawContext.boot({ guard: true })) {
+      // redirected by guard
+    } else if (ClawStorage.getAccessMode() === 'nfc') {
+      window.location.replace('../my-claw/my-claw.html');
+    } else {
+      window.location.replace('../my-claw/assign-password.html');
+    }
+  </script>
+</body>
+</html>
