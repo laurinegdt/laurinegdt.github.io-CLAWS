@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — Choose NFC</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--assign" data-claw-guard>
+  <main class="assign-page">
+    <h1 class="assign-page__title">ACTIVE NFC</h1>
+    <p class="assign-page__hint">Pick one NFC tag for this claw.</p>
+
+    <form class="assign-form" id="assign-form">
+      <ul class="assign-list" id="assign-list"></ul>
+      <button type="submit" class="signal-save">Save</button>
+    </form>
+
+    <nav class="page-nav" aria-label="Page navigation">
+      <a href="my-claw.html" class="back-link" data-claw-back="claw">← Back</a>
+      <a href="../menu/menu.html" class="home-link" data-claw-back="menu">Menu</a>
+    </nav>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="../claw-storage.js"></script>
+  <script src="../claw-context.js"></script>
+  <script src="../access/nfc-payload.js"></script>
+  <script src="../access/nfc-storage.js"></script>
+  <script src="assign-nfc.js"></script>
+  <script>ClawContext.boot({ guard: true });</script>
+</body>
+</html>

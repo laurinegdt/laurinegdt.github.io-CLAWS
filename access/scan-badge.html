@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — Scan NFC</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--scan">
+  <main class="scan">
+    <div class="scan__waves" aria-hidden="true">
+      <span class="scan__wave"></span>
+      <span class="scan__wave"></span>
+      <span class="scan__wave"></span>
+      <span class="scan__wave"></span>
+    </div>
+    <p class="scan__text">scan your nfc module</p>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="badge-storage.js"></script>
+  <script src="scan-badge.js"></script>
+</body>
+</html>

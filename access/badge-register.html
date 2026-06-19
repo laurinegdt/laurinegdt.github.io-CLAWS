@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — Your NFC module</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--badge-register">
+  <main class="badge-register">
+    <h1 class="badge-register__title">your nfc module</h1>
+
+    <form class="badge-register__form" id="badge-form" novalidate>
+      <fieldset class="signal-field">
+        <legend class="signal-field__label">name</legend>
+        <input
+          type="text"
+          id="badge-name"
+          class="signal-input"
+          placeholder="badge name"
+          autocomplete="off"
+          required
+        >
+      </fieldset>
+
+      <div class="nfc-info" aria-label="Module information">
+        <div class="nfc-info__row">
+          <span class="nfc-info__key">UID</span>
+          <span class="nfc-info__value" id="nfc-uid"></span>
+        </div>
+        <div class="nfc-info__row">
+          <span class="nfc-info__key">memory</span>
+          <span class="nfc-info__value" id="nfc-memory"></span>
+        </div>
+        <div class="nfc-info__row">
+          <span class="nfc-info__key">technology supported</span>
+          <span class="nfc-info__value" id="nfc-tech"></span>
+        </div>
+      </div>
+
+      <button type="submit" class="signal-save badge-register__save">Save</button>
+    </form>
+
+    <a href="access.html" class="back-link badge-register__back">← Back</a>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="badge-storage.js"></script>
+  <script src="badge-register.js"></script>
+</body>
+</html>

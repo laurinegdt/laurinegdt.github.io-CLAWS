@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — My claws</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--my-claws">
+  <main class="my-claws-page">
+    <h1 class="my-claws-page__title">MY CLAWS</h1>
+    <p class="my-claws-page__hint">Tap a claw to view or edit it.</p>
+
+    <ul class="my-claws__list" id="my-claws-list" aria-label="Saved claws"></ul>
+
+    <a href="../menu/add-claw.html?new=1" class="menu__btn my-claws__add">Add a claw</a>
+    <nav class="page-nav" aria-label="Page navigation">
+      <a href="../menu/menu.html" class="back-link" data-claw-back="menu">← Back</a>
+      <a href="../menu/menu.html" class="home-link" data-claw-back="menu">Menu</a>
+    </nav>
+  </main>
+  <script src="../claw-context.js"></script>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="../claw-storage.js"></script>
+  <script src="my-claws.js"></script>
+  <script>ClawContext.initBackLinks();</script>
+</body>
+</html>

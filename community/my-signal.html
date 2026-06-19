@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — My Signal</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="page page--my-signal">
+  <main class="my-signal-page">
+    <h1 class="my-signal-page__title">MY SIGNAL</h1>
+    <p class="my-signal-page__claw" id="my-signal-claw"></p>
+
+    <form class="signal-form__body" id="signal-form" novalidate>
+      <fieldset class="signal-field">
+        <legend class="signal-field__label">display name</legend>
+        <div class="signal-name-options">
+          <label class="signal-option">
+            <input type="radio" name="nameMode" value="anonymous" class="signal-option__input" checked>
+            <span class="signal-option__text">anonymous</span>
+          </label>
+          <label class="signal-option signal-option--custom">
+            <input type="radio" name="nameMode" value="custom" class="signal-option__input" id="name-mode-custom">
+            <input type="text" name="displayName" id="display-name" class="signal-input" placeholder="your name"
+              autocomplete="name" disabled>
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="signal-field">
+        <legend class="signal-field__label">display message</legend>
+        <textarea name="displayMessage" id="display-message" class="signal-textarea" rows="6"
+          placeholder="your message" required></textarea>
+      </fieldset>
+
+      <div class="form-actions">
+        <button type="submit" class="signal-save">Save</button>
+        <button type="button" class="menu__btn my-signal-view__sync" id="sync-emitter" hidden>Sync to emitter</button>
+        <button type="button" class="delete-btn" id="delete-signal" hidden>Delete</button>
+      </div>
+    </form>
+
+    <nav class="page-nav" aria-label="Page navigation">
+      <a href="../my-claw/my-claw.html" class="back-link" data-claw-back="claw">← Back</a>
+      <a href="../menu/menu.html" class="home-link" data-claw-back="menu">Menu</a>
+    </nav>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="../claw-storage.js"></script>
+  <script src="../claw-context.js"></script>
+  <script src="signal-storage.js"></script>
+  <script src="signal-emitter-ble.js"></script>
+  <script src="my-signal.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — My claw</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--my-claw">
+  <main class="my-claw">
+    <h1 class="my-claw__title" id="claw-page-title">MY CLAW</h1>
+    <p class="my-claw__subtitle" id="claw-page-subtitle"></p>
+
+    <section class="claw-active claw-active--signal" aria-labelledby="signal-heading">
+      <h2 class="claw-active__heading" id="signal-heading">Signal</h2>
+      <article class="id-card" id="id-card">
+        <p class="id-card__name" id="id-card-name">—</p>
+        <p class="id-card__message" id="id-card-message"></p>
+        <p class="id-card__empty" id="id-card-empty">No signal yet</p>
+      </article>
+      <a href="#" class="claw-active__change" id="signal-edit-link">Create signal</a>
+    </section>
+
+    <div class="claw-utility" id="utility-block">
+      <section class="claw-active claw-utility__primary" id="password-section" aria-labelledby="active-password-heading" hidden>
+        <h2 class="claw-active__heading" id="active-password-heading">Password</h2>
+        <p class="claw-active__value" id="active-password-label">None</p>
+        <a href="assign-password.html" class="claw-active__change">Choose password</a>
+      </section>
+
+      <section class="claw-active claw-utility__primary" id="nfc-section" aria-labelledby="active-nfc-heading" hidden>
+        <h2 class="claw-active__heading" id="active-nfc-heading">NFC</h2>
+        <p class="claw-active__value" id="active-nfc-label">None</p>
+        <a href="assign-nfc.html" class="claw-active__change">Choose NFC</a>
+      </section>
+
+      <p class="claw-utility__signal-log">
+        <a href="#" class="claw-utility__signal-log-link" id="signal-log-link">Signal log</a>
+        <span class="claw-utility__signal-log-meta" id="signal-log-summary">No detections yet</span>
+      </p>
+    </div>
+
+    <a href="../menu/add-claw.html" class="menu__btn my-claw__modifier" id="modifier-btn">Modifier</a>
+    <button type="button" class="delete-btn" id="delete-claw-btn">Delete claw</button>
+
+    <nav class="page-nav" aria-label="Page navigation">
+      <a href="my-claws.html" class="back-link" data-claw-back="claws">← Back</a>
+      <a href="../menu/menu.html" class="home-link" data-claw-back="menu">Menu</a>
+    </nav>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="../claw-storage.js"></script>
+  <script src="../claw-context.js"></script>
+  <script src="../access/nfc-storage.js"></script>
+  <script src="../memory/password-storage.js"></script>
+  <script src="../community/signal-storage.js"></script>
+  <script src="my-claw.js"></script>
+  <script>ClawContext.initBackLinks();</script>
+</body>
+</html>

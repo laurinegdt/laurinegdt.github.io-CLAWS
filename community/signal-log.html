@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — Signal log</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--signal-log">
+  <main class="signal-log-page">
+    <h1 class="signal-log-page__title">SIGNAL LOG</h1>
+    <p class="signal-log-page__claw" id="signal-log-claw"></p>
+    <p class="signal-log-page__status" id="signal-log-status">Connect the receiver once — then leave this page open</p>
+    <p class="signal-log-page__hint" id="signal-log-hint">
+      1. Flash <code>claw-app/RECEPTRICE.ino</code> — serial must say <strong>CLAW RECEPTRICE v4</strong>.<br>
+      2. If you see <code>[BLE] alive</code> → <strong>old firmware</strong>, re-flash.<br>
+      3. Chrome on <strong>http://localhost:8000</strong> (not file://).<br>
+      4. Connect receiver — pick <strong>CLAWRecv</strong> next to XIAONFC in the list.
+    </p>
+    <button type="button" class="menu__btn signal-log-page__connect" id="signal-log-connect">Connect receiver</button>
+
+    <ul class="signal-log__list" id="signal-log-list" aria-label="Signals you passed by"></ul>
+
+    <nav class="page-nav" aria-label="Page navigation">
+      <a href="../my-claw/my-claw.html" class="back-link" data-claw-back="claw">← Back</a>
+      <a href="../menu/menu.html" class="home-link" data-claw-back="menu">Menu</a>
+    </nav>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../claw-storage.js"></script>
+  <script src="../claw-context.js"></script>
+  <script src="signal-storage.js"></script>
+  <script src="signal-notify.js"></script>
+  <script src="signal-log.js"></script>
+</body>
+</html>

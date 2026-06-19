@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — My badges</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="page page--my-badges">
+  <main class="my-badges-page">
+    <h1 class="my-badges-page__title">MY BADGES</h1>
+    <ul class="badge-list" id="badge-list" hidden></ul>
+    <p class="my-badges-page__empty" id="badge-empty">No badges yet. Add one from Access.</p>
+    <a href="scan-badge.html" class="menu__btn my-badges-page__add" id="badge-add-btn" hidden>Add a badge</a>
+    <a href="access.html" class="back-link my-badges-page__back">← Back</a>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="badge-storage.js"></script>
+  <script src="my-badges.js"></script>
+</body>
+
+</html>

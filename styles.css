@@ -1,0 +1,1803 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500&display=swap');
+
+:root {
+  --bg: #ffffff;
+  --bg-dark: #ffffff;
+  --text: #1c1c1c;
+  --text-muted: rgba(28, 28, 28, 0.55);
+  --accent: #ff5cac;
+  --accent-hover: #ff78bc;
+  --accent-rgb: 255, 92, 172;
+  --accent-soft: rgba(255, 92, 172, 0.12);
+  --accent-border: rgba(255, 92, 172, 0.35);
+  --surface: #fff5fa;
+  --input-bg: rgba(255, 255, 255, 0.88);
+  --input-border: rgba(28, 28, 28, 0.12);
+  --card-border: rgba(255, 92, 172, 0.28);
+  --pattern-opacity: 0.16;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url('images/3eme_2eme.png');
+  background-size: cover;
+  background-position: center;
+  opacity: var(--pattern-opacity);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page {
+  min-height: 100dvh;
+  min-height: 100vh;
+}
+
+/* Splash */
+.page--splash {
+  background-color: transparent;
+}
+
+.splash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 1.5rem;
+}
+
+/* CLAW brand — logo image */
+.claw-brand {
+  display: inline-block;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.claw-brand__logo {
+  display: block;
+  width: clamp(14rem, 72vw, 24rem);
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 14px rgba(var(--accent-rgb), 0.18));
+}
+
+.claw-brand--splash {
+  text-decoration: none;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s ease;
+}
+
+.claw-brand--splash:active {
+  transform: scale(0.97);
+}
+
+.claw-brand--splash .claw-brand__logo {
+  width: clamp(16rem, 82vw, 28rem);
+}
+
+.claw-brand--header {
+  margin-bottom: 0.5rem;
+}
+
+.claw-brand--header .claw-brand__logo {
+  width: clamp(11rem, 55vw, 17rem);
+}
+
+/* Menus */
+.page--menu,
+.page--submenu {
+  background: transparent;
+}
+
+.page--add-claw .menu {
+  justify-content: flex-start;
+  padding-top: max(2rem, env(safe-area-inset-top));
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  gap: 2rem;
+}
+
+.menu__heading {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+.menu__subheading {
+  margin-top: -1.25rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 280px;
+}
+
+.menu__btn {
+  display: block;
+  width: 100%;
+  padding: 1.1rem 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.menu__btn:active {
+  transform: scale(0.98);
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.back-link {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.back-link:active {
+  color: var(--accent-hover);
+}
+
+/* Empty section pages */
+.page--placeholder {
+  background: transparent;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 1rem;
+}
+
+.placeholder__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.placeholder__text {
+  font-size: 0.95rem;
+  opacity: 0.5;
+}
+
+/* My signal & signal log pages */
+.page--my-signal,
+.page--signal-log,
+.page--signal-view,
+.page--my-claw,
+.page--my-claws,
+.page--my-nfc,
+.page--assign,
+.page--scan,
+.page--badge-register,
+.page--my-badges,
+.page--password,
+.page--my-passwords {
+  background: transparent;
+}
+
+.my-signal-page,
+.signal-log-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem 1.5rem 1.5rem;
+  max-width: 480px;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+
+.my-signal-page__title,
+.signal-log-page__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 12vw, 3.5rem);
+  letter-spacing: 0.12em;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.my-signal-view {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
+.my-signal-view__actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.my-signal-view__change {
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.my-signal-view__change:active {
+  color: var(--accent-hover);
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.delete-btn {
+  padding: 0.75rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: rgba(255, 80, 80, 0.12);
+  border: 1px solid rgba(255, 100, 100, 0.35);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.delete-btn:active {
+  transform: scale(0.98);
+  background: rgba(255, 80, 80, 0.22);
+}
+
+.saved-item__content {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+}
+
+.signal-log__item,
+.badge-list__item,
+.password-list__item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.signal-log__item .saved-item__content {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.signal-log__item .delete-btn,
+.badge-list__item .delete-btn,
+.password-list__item .delete-btn {
+  flex-shrink: 0;
+  padding: 0.45rem 0.65rem;
+  font-size: 0.8rem;
+}
+
+.signal-log__empty {
+  font-size: 0.95rem;
+  opacity: 0.5;
+  text-align: center;
+  padding: 1rem 0;
+  list-style: none;
+}
+
+.signal-view__delete {
+  width: 100%;
+}
+
+#delete-id-signal {
+  max-width: 320px;
+  width: 100%;
+}
+
+.my-signal-page__back,
+.signal-log-page__back {
+  align-self: center;
+  margin-top: auto;
+}
+
+.signal-log-page {
+  gap: 1.25rem;
+}
+
+.signal-log-page .signal-log__list {
+  flex: 1;
+}
+
+/* Saved my signal card */
+.my-signal {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: left;
+}
+
+.my-signal__card {
+  padding: 1.25rem 1.25rem 1.35rem;
+  background: rgba(var(--accent-rgb), 0.12);
+  border: 1px solid rgba(var(--accent-rgb), 0.35);
+  border-radius: 12px;
+}
+
+.my-signal__name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--accent);
+  margin-bottom: 0.65rem;
+}
+
+.my-signal__message {
+  font-size: 1rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.signal-log__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  text-align: left;
+}
+
+.signal-log__item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.65rem 0.85rem;
+  background: var(--accent-soft);
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  font-size: 0.95rem;
+}
+
+.signal-log__time {
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  min-width: 2.75rem;
+}
+
+.signal-log__label {
+  text-transform: lowercase;
+  opacity: 0.9;
+}
+
+.signal-log__check {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.signal-log__desc {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 0.35rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.signal-log__datetime {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.my-signal-page__claw,
+.signal-log-page__claw {
+  margin: -0.5rem 0 1.25rem;
+  font-size: 0.95rem;
+  color: var(--text-muted, #666);
+  text-align: center;
+}
+
+.claw-active--signal .id-card {
+  margin-bottom: 0.5rem;
+}
+
+.claw-active--signal-log {
+  margin-top: 0.25rem;
+}
+
+.claw-utility {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.claw-utility__primary {
+  margin: 0;
+}
+
+.claw-utility__signal-log {
+  margin: 0.15rem 0 0;
+  padding: 0 0.35rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.45;
+  opacity: 0.75;
+}
+
+.claw-utility__signal-log-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.claw-utility__signal-log-link:active,
+.claw-utility__signal-log-link:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent-soft);
+}
+
+.claw-utility__signal-log-meta {
+  margin-left: 0.15rem;
+}
+
+.new-claw {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: min(100%, 28rem);
+  max-width: 28rem;
+  margin: 0 auto;
+  gap: 0;
+}
+
+.new-claw__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  opacity: 0.9;
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.new-claw__lead {
+  margin: 0 0 1.25rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.45;
+  max-width: 280px;
+}
+
+.signal-log-page__hint {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted, #666);
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.45;
+}
+
+.signal-log-page__status {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+.my-signal-view__sync,
+.signal-view__sync {
+  margin-bottom: 0.5rem;
+}
+
+.signal-log-page__connect {
+  margin-bottom: 0.5rem;
+}
+
+.signal-log-page__simulate {
+  margin-bottom: 1rem;
+}
+
+.signal-log__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.signal-form__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 2rem;
+  border: none;
+  min-height: 0;
+}
+
+.signal-field {
+  border: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.signal-field__label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  padding: 0;
+}
+
+.signal-name-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.signal-option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+}
+
+.signal-option--custom {
+  flex-wrap: wrap;
+}
+
+.signal-option__input {
+  flex-shrink: 0;
+  width: 1.1rem;
+  height: 1.1rem;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.signal-option__text {
+  font-size: 1rem;
+  text-transform: lowercase;
+}
+
+.signal-input,
+.signal-textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.signal-option--custom .signal-input {
+  flex: 1;
+  min-width: 0;
+}
+
+.signal-input:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.signal-input:focus:not(:disabled),
+.signal-textarea:focus {
+  border-color: var(--accent);
+}
+
+.signal-textarea {
+  resize: vertical;
+  min-height: 8rem;
+}
+
+.signal-save {
+  margin-top: auto;
+  padding: 1.1rem 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #fff;
+  background: var(--accent);
+  border: 1px solid var(--accent-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.signal-save:active {
+  transform: scale(0.98);
+  background: var(--accent-hover);
+}
+
+/* Signal preview after save */
+.signal-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: left;
+  gap: 1.5rem;
+}
+
+.signal-view__name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 10vw, 2.75rem);
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--accent);
+}
+
+.signal-view__message {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.signal-view__badge {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--text-muted);
+}
+
+.signal-view__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.signal-view__btn {
+  display: block;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.signal-view__btn--primary {
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.signal-view__btn:active {
+  transform: scale(0.98);
+}
+
+/* My claw — ID card */
+.my-claw {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: min(100%, 28rem);
+  max-width: 28rem;
+  margin: 0 auto;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  gap: 1.5rem;
+}
+
+.my-claw__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 10vw, 2.75rem);
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-align: center;
+  width: 100%;
+}
+
+.id-card {
+  width: 100%;
+  padding: 1.75rem 1.5rem;
+  text-align: left;
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: 0 8px 28px rgba(var(--accent-rgb), 0.12);
+}
+
+.id-card--active {
+  border-color: var(--accent);
+  background: linear-gradient(145deg, rgba(var(--accent-rgb), 0.1), var(--surface));
+}
+
+.id-card__header {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 1.25rem;
+}
+
+.id-card__name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.id-card--empty .id-card__name,
+.id-card--empty .id-card__message {
+  display: none;
+}
+
+.id-card__message {
+  font-size: 1.05rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.id-card__empty {
+  font-size: 0.95rem;
+  opacity: 0.5;
+  line-height: 1.5;
+}
+
+.id-card--active .id-card__empty {
+  display: none;
+}
+
+.my-claw__link {
+  font-size: 0.95rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.my-claw__link:active {
+  color: var(--accent-hover);
+}
+
+.my-claw__back {
+  margin-top: auto;
+}
+
+.my-claw__subtitle {
+  margin-top: -0.75rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+  width: 100%;
+}
+
+.my-claw__modifier {
+  width: 100%;
+  max-width: 280px;
+}
+
+/* My claws — list */
+.my-claws-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: min(100%, 28rem);
+  max-width: 28rem;
+  margin: 0 auto;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  gap: 1.25rem;
+}
+
+.my-claws-page__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 10vw, 2.75rem);
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  text-align: center;
+  width: 100%;
+}
+
+.my-claws-page__hint {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 320px;
+}
+
+.my-claws__list {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.my-claws__item {
+  margin: 0;
+}
+
+.my-claws__link {
+  display: block;
+  padding: 1rem 1.1rem;
+  text-decoration: none;
+  color: inherit;
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(var(--accent-rgb), 0.08);
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.my-claws__link:active {
+  transform: scale(0.99);
+  border-color: var(--accent);
+}
+
+.my-claws__name {
+  display: block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.my-claws__preview {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.my-claws__empty {
+  padding: 1.25rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.my-claws__add {
+  margin-top: 0.5rem;
+}
+
+.nfc-list__badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-left: 0.35rem;
+}
+
+.saved-item__badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-left: 0.35rem;
+}
+
+/* Page navigation — Back + Menu */
+.page-nav {
+  display: flex;
+  width: 100%;
+  max-width: 280px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.page-nav .back-link {
+  margin-top: 0;
+}
+
+.home-link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.home-link:active {
+  color: var(--accent-hover);
+}
+
+/* Claw active selections on detail page */
+.claw-active {
+  width: 100%;
+  padding: 1rem 1.1rem;
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+}
+
+.claw-active__heading {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.claw-active__value {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+  word-break: break-word;
+}
+
+.claw-active__value--empty {
+  color: var(--text-muted);
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.claw-active__value--set {
+  color: var(--text);
+}
+
+.claw-active__change {
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.claw-active__change:active {
+  color: var(--accent-hover);
+}
+
+/* NFC library list */
+.my-nfc-page,
+.assign-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+  width: min(100%, 28rem);
+  max-width: 28rem;
+  margin: 0 auto;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  gap: 1.25rem;
+}
+
+.new-claw__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.new-claw__choices {
+  border: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.new-claw__submit {
+  width: 100%;
+}
+
+.password-page__ble-hint {
+  margin: 1rem 0 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+  opacity: 0.85;
+}
+
+.password-page__connect {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.password-page__connect:disabled {
+  opacity: 0.65;
+}
+
+.signal-save:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.my-nfc-page__title,
+.assign-page__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.75rem, 8vw, 2.5rem);
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  text-align: center;
+  width: 100%;
+}
+
+.my-nfc-page__hint,
+.assign-page__hint {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 320px;
+  line-height: 1.5;
+}
+
+.nfc-list,
+.assign-list {
+  list-style: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.nfc-list__item,
+.password-list__item--active,
+.nfc-list__item--active {
+  border-color: var(--accent);
+}
+
+.nfc-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+}
+
+.nfc-list__title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.nfc-list__meta,
+.nfc-list__preview {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.my-nfc-page__empty,
+.assign-list__empty {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+.assign-list__empty a {
+  color: var(--accent);
+}
+
+.assign-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.assign-list__item {
+  margin: 0;
+}
+
+.assign-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  cursor: pointer;
+}
+
+.assign-option:has(input:checked) {
+  border-color: var(--accent);
+  background: linear-gradient(145deg, rgba(var(--accent-rgb), 0.08), var(--surface));
+}
+
+.assign-option input[type="radio"] {
+  margin-top: 0.2rem;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.assign-option__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.assign-option__title {
+  font-weight: 600;
+}
+
+.assign-option__meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.page--my-nfc,
+.page--assign {
+  background: transparent;
+}
+
+.page--scan {
+  background: transparent;
+  overflow: hidden;
+}
+
+.scan {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.scan__waves {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.scan__wave {
+  position: absolute;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: 2px solid rgba(var(--accent-rgb), 0.55);
+  animation: scan-pulse 3.5s ease-out infinite;
+}
+
+.scan__wave:nth-child(1) { animation-delay: 0s; }
+.scan__wave:nth-child(2) { animation-delay: 0.7s; }
+.scan__wave:nth-child(3) { animation-delay: 1.4s; }
+.scan__wave:nth-child(4) { animation-delay: 2.1s; }
+
+@keyframes scan-pulse {
+  0% {
+    transform: scale(0.35);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(12);
+    opacity: 0;
+  }
+}
+
+.scan__text {
+  position: relative;
+  z-index: 1;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.5rem, 7vw, 2rem);
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: lowercase;
+  max-width: 16rem;
+  line-height: 1.25;
+  color: var(--accent);
+}
+
+/* Badge register */
+
+.badge-register {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem 1.5rem 1.5rem;
+  max-width: 480px;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+
+.badge-register__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2rem, 10vw, 2.75rem);
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-transform: lowercase;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.badge-register__form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1.5rem;
+  border: none;
+}
+
+.badge-register__save {
+  margin-top: auto;
+}
+
+.badge-register__back {
+  align-self: center;
+}
+
+.nfc-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.25rem 1.25rem 1.35rem;
+  text-align: left;
+  background: var(--accent-soft);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+.nfc-info__row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.nfc-info__key {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: lowercase;
+  color: var(--text-muted);
+}
+
+.nfc-info__value {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  word-break: break-word;
+  color: var(--text);
+}
+
+/* My badges list */
+.my-badges-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem 1.5rem;
+  max-width: 480px;
+  margin: 0 auto;
+  gap: 1.25rem;
+}
+
+.my-badges-page__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 12vw, 3.5rem);
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: var(--accent);
+}
+
+.my-badges-page__empty {
+  font-size: 0.95rem;
+  opacity: 0.5;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.my-badges-page__add {
+  max-width: none;
+}
+
+.my-badges-page__back {
+  align-self: center;
+  margin-top: auto;
+}
+
+.badge-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.badge-list__item {
+  padding: 1rem 1.1rem;
+  text-align: left;
+  background: rgba(var(--accent-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-rgb), 0.28);
+  border-radius: 12px;
+}
+
+.badge-list__name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--accent);
+  margin-bottom: 0.35rem;
+}
+
+.badge-list__uid {
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.75;
+}
+
+/* Memory — passwords */
+
+.password-page,
+.my-passwords-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  min-height: 100vh;
+  padding: 2rem 1.5rem 1.5rem;
+  max-width: 480px;
+  margin: 0 auto;
+  gap: 1.5rem;
+}
+
+.password-page__title,
+.my-passwords-page__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.5rem, 12vw, 3.5rem);
+  letter-spacing: 0.12em;
+  text-align: center;
+  color: var(--accent);
+}
+
+/* Global CLAW BLE connection chip (all pages) */
+.claw-ble-chip {
+  position: fixed;
+  top: max(0.75rem, env(safe-area-inset-top));
+  right: max(0.75rem, env(safe-area-inset-right));
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--input-border);
+  background: var(--surface);
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.claw-ble-chip:active {
+  transform: scale(0.96);
+}
+
+.claw-ble-chip__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: #dc2626;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.claw-ble-chip--on .claw-ble-chip__dot {
+  background: #22c55e;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.25);
+}
+
+.claw-ble-chip--reconnect .claw-ble-chip__dot {
+  background: #dc2626;
+  box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.2);
+  animation: claw-ble-pulse 1.4s ease-in-out infinite;
+}
+
+.claw-ble-chip--busy .claw-ble-chip__dot {
+  background: #f59e0b;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25);
+  animation: claw-ble-pulse 0.9s ease-in-out infinite;
+}
+
+.claw-ble-chip--unsupported {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+@keyframes claw-ble-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+
+.gesture-seq-display--ok {
+  color: var(--accent);
+}
+
+.gesture-hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.85rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.gesture-seq-display {
+  font-size: 1rem;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  min-height: 2.75rem;
+  line-height: 1.5;
+}
+
+.gesture-record-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.gesture-record-btn {
+  flex: 1;
+  min-width: 4.5rem;
+  padding: 0.75rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.gesture-record-btn:active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.gesture-clear-btn {
+  padding: 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.password-page__saved-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.75rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  text-align: center;
+  color: var(--accent);
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.password-page__form {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 1.5rem;
+  border: none;
+}
+
+.password-page__back,
+.my-passwords-page__back {
+  align-self: center;
+  margin-top: auto;
+}
+
+.password-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-wrap__input {
+  padding-right: 3rem;
+}
+
+.password-input-wrap__toggle {
+  position: absolute;
+  right: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  font-size: 1.15rem;
+  line-height: 1;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.password-input-wrap__toggle:active {
+  color: var(--accent-hover);
+}
+
+.password-input-wrap__icon--hide {
+  display: none;
+}
+
+.password-input-wrap__toggle[aria-pressed="true"] .password-input-wrap__icon--show {
+  display: none;
+}
+
+.password-input-wrap__toggle[aria-pressed="true"] .password-input-wrap__icon--hide {
+  display: block;
+}
+
+.signal-select {
+  width: 100%;
+  padding: 0.85rem 2.5rem 0.85rem 1rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: 12px;
+  outline: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23b91c1c' fill-opacity='0.85' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  cursor: pointer;
+}
+
+.signal-select:focus {
+  border-color: var(--accent);
+}
+
+.my-passwords-page__empty {
+  font-size: 0.95rem;
+  opacity: 0.5;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.my-passwords-page__add {
+  max-width: none;
+}
+
+.password-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.password-list__item {
+  padding: 1rem 1.1rem;
+  text-align: left;
+  background: var(--accent-soft);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+.password-list__name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+.password-list__meta {
+  font-size: 0.85rem;
+  text-transform: lowercase;
+  color: var(--text-muted);
+  margin-bottom: 0.35rem;
+}
+
+.password-list__secret {
+  font-size: 1rem;
+  letter-spacing: 0.15em;
+  opacity: 0.7;
+}
+
+/* --- NFC Tools (Access) --- */
+.page--nfc-home,
+.page--nfc-write {
+  min-height: 100dvh;
+}
+
+.nfc-home,
+.nfc-write {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1.25rem;
+  width: min(100%, 28rem);
+  margin: 0 auto;
+  padding: 1.5rem 1.25rem 2rem;
+}
+
+.nfc-home__hint,
+.nfc-write__subtitle {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.45;
+}
+
+.nfc-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.nfc-type-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 6.5rem;
+  padding: 1rem;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--accent-soft);
+  border: 1px solid var(--card-border);
+  border-radius: 14px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.nfc-type-card--wide {
+  grid-column: 1 / -1;
+}
+
+.nfc-type-card:hover,
+.nfc-type-card:focus-visible {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.nfc-type-card__icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.nfc-type-card__label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--accent);
+}
+
+.nfc-write__title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  text-align: center;
+  color: var(--accent);
+}
+
+.nfc-write__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nfc-write__status {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text-muted);
+  min-height: 1.25rem;
+}
+
+.nfc-write__program {
+  margin-top: 0.25rem;
+}
+

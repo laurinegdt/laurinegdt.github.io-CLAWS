@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>CLAW — Modifier</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="page page--submenu page--add-claw">
+  <main class="menu">
+    <section id="new-claw-section" class="new-claw" hidden>
+      <h1 class="new-claw__title">New claw</h1>
+      <p class="new-claw__lead">Choose one function for this claw</p>
+      <form class="new-claw__form" id="new-claw-form" novalidate>
+        <fieldset class="new-claw__choices">
+          <label class="assign-option">
+            <input type="radio" name="accessMode" value="password" required>
+            <span class="assign-option__body">
+              <span class="assign-option__title">Password</span>
+              <span class="assign-option__meta">XIAO Chat — type passwords with gestures or voice</span>
+            </span>
+          </label>
+          <label class="assign-option">
+            <input type="radio" name="accessMode" value="nfc">
+            <span class="assign-option__body">
+              <span class="assign-option__title">NFC</span>
+              <span class="assign-option__meta">Program a tag on XIAO NFC</span>
+            </span>
+          </label>
+        </fieldset>
+        <fieldset class="signal-field">
+          <legend class="signal-field__label">name (optional)</legend>
+          <input type="text" id="new-claw-label" class="signal-input" placeholder="My claw" autocomplete="off">
+        </fieldset>
+        <button type="submit" class="menu__btn new-claw__submit">Create claw</button>
+      </form>
+      <nav class="page-nav" aria-label="Page navigation">
+        <a href="../my-claw/my-claws.html" class="back-link">← Back</a>
+        <a href="../menu/menu.html" class="home-link">Menu</a>
+      </nav>
+    </section>
+
+    <section id="modifier-section">
+      <p class="menu__heading" id="modifier-heading">Modifier</p>
+      <p class="menu__subheading" id="modifier-claw-name"></p>
+      <p class="menu__subheading" id="modifier-claw-mode"></p>
+      <nav class="menu__nav" aria-label="Modifier options">
+        <a href="../memory/new-password.html" class="menu__btn" id="modifier-add-password" hidden>Add password</a>
+        <a href="../memory/my-passwords.html" class="menu__btn" id="modifier-my-passwords" hidden>My passwords</a>
+        <a href="../access/nfc-home.html" class="menu__btn" id="modifier-program-nfc" hidden>Program NFC tag</a>
+        <a href="../access/my-nfc.html" class="menu__btn" id="modifier-my-nfc" hidden>My NFC tags</a>
+      </nav>
+      <nav class="page-nav" aria-label="Page navigation">
+        <a href="../my-claw/my-claws.html" class="back-link" id="modifier-back" data-claw-back="claw">← Back</a>
+        <a href="../menu/menu.html" class="home-link" data-claw-back="menu">Menu</a>
+      </nav>
+    </section>
+  </main>
+  <script src="../ble-client.js"></script>
+  <script src="../ble-status-ui.js"></script>
+  <script src="../claw-storage.js"></script>
+  <script src="../claw-context.js"></script>
+  <script src="add-claw.js"></script>
+</body>
+</html>
